@@ -27,7 +27,16 @@ public enum MoonPhases {
     }
 
     public static List<MoonPhases> valueOf(int percent){
-       List<MoonPhases> result = new ArrayList<>();
+
+       if (percent < 0){
+           percent = 0;
+       }
+
+        if (percent > 100){
+            percent = 100;
+        }
+
+        List<MoonPhases> result = new ArrayList<>();
 
        int k = percent/25;
        if ((percent - k*25) > 13) k++;
